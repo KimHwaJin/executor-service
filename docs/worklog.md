@@ -6,26 +6,7 @@ Git commit과 함께 갱신하며, 자세한 개선 범위와 완료 조건은
 
 ## 현재 작업
 
-### IMP-012 — 저장소 정리 및 최초 GitHub 이전
-
-- 상태: `IN_PROGRESS`
-- 작업 branch: `main`
-- 마지막 구현 commit: 아직 없음
-- 마지막 작업 위치: 기존 환경
-- 마지막 갱신일: `2026-07-26`
-- 현재까지 완료:
-  - 업로드 대상 파일과 민감 파일을 점검했다.
-  - GitHub 원격 저장소가 비어 있음을 확인했다.
-  - 로컬 전용 파일과 빌드 산출물의 ignore 규칙을 보강했다.
-- 검증 결과:
-  - 민감 파일 이름 점검: 실제 비밀 파일 없음
-  - `git ls-remote`: 원격 reference 없음
-- 다음 할 일:
-  1. 로컬 Git 저장소를 초기화한다.
-  2. 최초 commit을 생성하고 GitHub에 push한다.
-  3. push 결과를 검증하고 IMP-012를 완료 목록으로 이동한다.
-- 주의사항 또는 결정:
-  - 최초 repository 구성 작업이므로 `main`에서 초기 commit을 생성한다.
+진행 중인 작업이 없다.
 
 작업을 시작하면 위 문장을 다음 형식으로 교체한다.
 
@@ -50,7 +31,27 @@ Git commit과 함께 갱신하며, 자세한 개선 범위와 완료 조건은
 
 ## 작업 기록
 
-아직 기록된 작업이 없다.
+### 2026-07-26 — IMP-012 — 저장소 정리 및 최초 GitHub 이전
+
+- 작업 위치: 기존 환경
+- branch: `main`
+- 마지막 구현 commit: `2831f0e`
+- 변경 내용:
+  - 로컬 소스 디렉터리를 Git repository로 초기화했다.
+  - `https://github.com/KimHwaJin/executor-service.git`을 `origin`으로
+    등록했다.
+  - 로컬 전용 파일과 빌드 산출물을 ignore하도록 정리했다.
+  - 전체 프로젝트와 작업·인계 문서를 원격 `main`에 push했다.
+- 검증:
+  - Python 3.12 `compileall`: 통과
+  - 민감정보 signature 검사: 발견 없음
+  - `.DS_Store` 및 `.env` ignore 확인: 통과
+  - `git push -u origin main`: 성공
+  - `pytest`, `ruff`, `mypy`: 현재 환경에 도구와 의존성이 없어 미실행
+- 다음 작업:
+  - 다른 환경에서 repository를 clone한다.
+  - 작업 전 `docs/improvements.md`, `docs/worklog.md`,
+    `docs/workflow.md`를 확인한다.
 
 작업을 다른 환경으로 인계하거나 완료할 때 다음 형식으로 최신 기록을 위에
 추가한다.

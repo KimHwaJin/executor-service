@@ -277,22 +277,24 @@
   - CI가 테스트, lint, type check 실패를 차단한다.
   - 주요 장애와 복구 경로가 자동 테스트로 재현된다.
 
+## 완료 목록
+
 ### IMP-012 — 저장소 정리
 
 - 우선순위: `P3`
-- 상태: `IN_PROGRESS`
-- 관련 위치:
-  - `.gitignore`
-- 문제:
-  - macOS의 `.DS_Store`가 작업 디렉터리에 존재하지만 ignore 규칙이 없다.
-- 개선 방향:
-  - `.DS_Store`를 `.gitignore`에 추가하고 저장소에서 제외한다.
-- 완료 조건:
-  - `.DS_Store`가 변경 파일이나 배포 산출물에 포함되지 않는다.
-
-## 완료 목록
-
-아직 완료 처리된 개선사항이 없다.
+- 완료일: `2026-07-26`
+- 변경 내용:
+  - `.DS_Store`를 Git ignore 대상으로 추가했다.
+  - Python coverage, build, package metadata와 log 산출물의 ignore 규칙을
+    보강했다.
+  - 로컬 전용 파일을 제외한 프로젝트 파일을 GitHub 저장소에 등록했다.
+- 검증:
+  - 루트와 `src/` 하위의 `.DS_Store`가 모두 ignore되는 것을 확인했다.
+  - `.env`가 ignore되고 `.env.example`만 추적되는 것을 확인했다.
+  - 민감정보 signature 검사에서 private key와 access token을 발견하지 않았다.
+  - 최초 commit `2831f0e`가 원격 `main`에 push된 것을 확인했다.
+- 후속 작업:
+  - 없음
 
 완료된 항목은 다음 형식으로 이곳에 옮긴다.
 
